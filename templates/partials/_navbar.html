@@ -1,7 +1,5 @@
 {% load static %}
-
-
-    <!--header area start-->
+<!--header area start-->
     <!--Offcanvas menu area start-->
     <div class="off_canvars_overlay">
             
@@ -15,7 +13,7 @@
                     </div>
                     <div class="Offcanvas_menu_wrapper">
                         <div class="canvas_close">
-                              <a href="javascript:void(0)"><i class="ion-android-close"></i></a>  
+                              <a href="javascript:void(0)"><i class="icon-android-close"></i></a>  
                         </div>
                         <div class="support_info">
                             <p>Any Enquiry: <a href="tel:">+56985475235</a></p>
@@ -27,17 +25,18 @@
                             </ul>
                         </div> 
                         <div class="search_container">
-                           <form action="#">
-                                <div class="search_box">
-                                    <input placeholder="Search product..." type="text">
-                                    <button type="submit">Search</button> 
-                                </div>
+                            <form action="{% url 'search'%}" method="POST">
+                                {% csrf_token %}
+                                    <div class="search_box">
+                                        <input placeholder="Search product..." type="text" name="searched">
+                                        <button type="submit">Search</button> 
+                                    </div>
                             </form>
                         </div> 
                         
                         <div class="middel_right_info">
                             <div class="header_wishlist">
-                                <a href="wishlist.html"><img src="{% static 'img/user.png' %} " alt=""></a>
+                                <a href="wishlist.html"><img src="{% static 'img/user.png' %}" alt=""></a>
                             </div>
                             <div class="mini_cart_wrapper">
                                 <a href="javascript:void(0)"><img src="{% static 'img/shopping-bag.png' %}" alt=""></a>
@@ -164,25 +163,26 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-6">
                             <div class="logo">
-                                <a href="index-2.html"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
+                                <a href="{% url 'home' %}"><img src="{% static "img/logo/logo.png" %}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-6">
                             <div class="middel_right">
                                 <div class="search_container">
-                                   <form action="#">
+                                   <form action="{% url 'search'%}" method="POST">
+                                    {% csrf_token %}
                                         <div class="search_box">
-                                            <input placeholder="Search product..." type="text">
+                                            <input placeholder="Search product..." type="text" name="searched">
                                             <button type="submit">Search</button> 
                                         </div>
                                     </form>
                                 </div>
                                 <div class="middel_right_info">
                                     <div class="header_wishlist">
-                                        <a href="#"><img src="{% static 'img/user.png' %}" alt=""></a>
+                                        <a href="#"><img src="{% static "img/user.png" %}" alt=""><span>{{user.username}}</span></a>
                                     </div>
                                     <div class="mini_cart_wrapper">
-                                        <a href="javascript:void(0)"><img src="{% static 'img/shopping-bag.png' %}" alt=""></a>
+                                        <a href="javascript:void(0)"><img src="{% static "img/shopping-bag.png" %}" alt=""></a>
                                         <span class="cart_quantity">2</span>
                                         <!--mini cart-->
                                          <div class="mini_cart">
@@ -249,7 +249,7 @@
                             <div class="main_menu menu_position"> 
                                 <nav>  
                                     <ul>
-                                        <li><a href="index-2.html">home</a></li>
+                                        <li><a href="{% url 'home' %}">home</a></li>
                                         <li><a href="product-details.html">Product</a></li>
                                         
                                         
@@ -262,8 +262,12 @@
                                         <li><a href="contact.html"> Contact Us</a></li>
                                     </ul>  
                                     <ul>
-                                        <li><a href="login.html"> LogIn</a></li>
-                                        <li><a href="register.html"> Register</a></li>
+                                        {% if user.is_authenticated %}
+                                            <li><a href="{% url 'logout' %}"> Log Out</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'login' %}"> LogIn</a></li>
+                                            <li><a href="{% url 'register' %}"> Register</a></li>
+                                        {% endif %}                                      
                                     </ul>
                                 </nav> 
                             </div>

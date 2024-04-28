@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!--product details start-->
+    <div class="product_details mt-60 mb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product-details-tab">
+                        <div id="img-1" class="zoomWrapper single-zoom">
+                            <a href="#">
+                                <img id="zoom1" src="{{products.product_img.url}}" data-zoom-image="{{products.product_img.url}}" alt="big-1">
+                            </a>
+                        </div>
+                        <div class="single-zoom-thumb">
+                            <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_01">
+                                <li>
+                                    <a href="#" class="elevatezoom-gallery active" data-update="" data-image="{{products.photo_1.url}}" data-zoom-image="{{products.photo_1.url}}">
+                                        <img src="{{products.photo_1.url}}" alt="zo-th-1"/>
+                                    </a>
+
+                                </li>
+                                <li >
+                                    <a href="#" class="elevatezoom-gallery active" data-update="" data-image="{{products.photo_2.url}}" data-zoom-image="{{products.photo_2.url}}">
+                                        <img src="{{products.photo_2.url}}" alt="zo-th-1"/>
+                                    </a>
+
+                                </li>
+                                <li >
+                                    <a href="#" class="elevatezoom-gallery active" data-update="" data-image="{{products.photo_3.url}}" data-zoom-image="{{products.photo_3.url}}">
+                                        <img src="{{products.photo_3.url}}" alt="zo-th-1"/>
+                                    </a>
+
+                                </li>
+                                <li >
+                                    <a href="#" class="elevatezoom-gallery active" data-update="" data-image="{{products.photo_4.url}}" data-zoom-image="{{products.photo_4.url}}">
+                                        <img src="{{products.photo_4.url}}" alt="zo-th-1"/>
+                                    </a>
+                                </li>
+
+                                <li >
+                                    <a href="#" class="elevatezoom-gallery active" data-update="" data-image="{{product.photo_4.url}}" data-zoom-image="{{products.photo_5.url}}">
+                                        <img src="{{products.photo_5.url}}" alt="zo-th-1"/>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product_d_right">
+                        <form action="#">
+                            
+                            <h1>{{products.product_title}}</h1>
+                            <div class=" product_ratting">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li class="review"><a href="#"> (250 reviews) </a></li>
+                                </ul>
+                                
+                            </div>
+                            <div class="price_box">
+                                <span class="current_price">$ {{products.product_price}}</span>
+                                <span class="old_price">$ {{products.old_price}}</span>                                
+                            </div>
+                            <div class="product_desc">
+                                <ul>
+                                    <li>In Stock</li>
+                                    <li>Free delivery available*</li>
+                                    <li>Sale 30% Off Use Code : 'Drophut'</li>
+                                </ul>
+                                <p>{{products.product_description}}</p>
+                            </div>
+                           
+                            <div class="product_variant color">
+                                <h3>Available Options</h3>
+                                <label>color</label>
+                                <ul>
+                                    <li class="color1"><a href="#"></a></li>
+                                    <li class="color2"><a href="#"></a></li>
+                                    <li class="color3"><a href="#"></a></li>
+                                    <li class="color4"><a href="#"></a></li>
+                                </ul>
+                            </div>
+                            <div class="product_variant quantity">
+                                <label>quantity</label>
+                                <input min="1" max="100" value="1" type="number">
+                                <button class="button" type="submit">Buy now</button>  
+                                
+                            </div>
+                            <div class="product_meta">
+                                <span>Category: <a href="#">{{products.product_name}}</a></span>
+                            </div>
+                            
+                        </form>
+                        <div class="priduct_social">
+                            <ul>
+                                <li><a class="facebook" href="#" title="facebook"><i class="fa fa-facebook"></i> Like</a></li>           
+                                <li><a class="twitter" href="#" title="twitter"><i class="fa fa-twitter"></i> tweet</a></li>           
+                                <li><a class="pinterest" href="#" title="pinterest"><i class="fa fa-pinterest"></i> save</a></li>           
+                                <li><a class="google-plus" href="#" title="google +"><i class="fa fa-google-plus"></i> share</a></li>        
+                                <li><a class="linkedin" href="#" title="linkedin"><i class="fa fa-linkedin"></i> linked</a></li>        
+                            </ul>      
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <!--product details end-->
+
+{% endblock content %}

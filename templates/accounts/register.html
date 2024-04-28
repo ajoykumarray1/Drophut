@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
@@ -17,27 +16,42 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                             <div class="account-content">
-                                <form action="#">
+                                {% include "partials/_alerts.html" %}
+                                <form action="#" method="POST">
+                                    {% csrf_token %}
                                     <div class="single-acc-field">
-                                        <label for="name">Name</label>
-                                        <input type="text" id="name" placeholder="Enter Your Name">
+                                        <label for="first_name">First Name</label>
+                                        <input type="text" name="first_name" id="name" placeholder="Enter Your First Name">
+                                    </div>
+                                    <div class="single-acc-field">
+                                        <label for="last_name">Last Name</label>
+                                        <input type="text" name="last_name" id="name" placeholder="Enter Your Last Name">
+                                    </div>
+                                    <div class="single-acc-field">
+                                        <label for="username">user name</label>
+                                        <input type="text" name="username" id="name" placeholder="Enter Your user_name">
                                     </div>
                                     <div class="single-acc-field">
                                         <label for="email">Email</label>
-                                        <input type="email" id="email" placeholder="Enter your Email">
+                                        <input type="email" name="email" id="email" placeholder="Enter your Email">
                                     </div>
                                     <div class="single-acc-field">
                                         <label for="password">Password</label>
-                                        <input type="password" id="password" placeholder="At least 6 Charecter">
+                                        <input type="password" name="password" id="password" placeholder="At least 6 Charecter">
+                                    </div>
+                                    <div class="single-acc-field">
+                                        <label for="password">Confirm Password</label>
+                                        <input type="password" name="password2" id="password" placeholder="At least 6 Charecter">
                                     </div>
                                     <div class="single-acc-field boxes">
                                         <input type="checkbox" id="checkbox">
                                         <label for="checkbox">I'm not a robot</label>
-                                    </div>
+                                    </div> 
+                                    
                                     <div class="single-acc-field">
                                         <button type="submit">Register now</button>
                                     </div>
-                                    <a href="login.html">Already account? Login</a>
+                                    <a href="{% url 'login' %}">Already account? Login</a>
                                 </form>
                             </div>
                         </div>
